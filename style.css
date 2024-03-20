@@ -46,7 +46,7 @@ body {
     justify-content: center;
 } 
  
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 480px) {
     #resultado{
 
      margin-left: 20%;
@@ -64,3 +64,5 @@ body {
         margin-top: 3%; 
     }
   }
+
+ 
