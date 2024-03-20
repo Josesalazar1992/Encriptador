@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Encriptador / Desencriptador</title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+        <h1 id = "titulo">Encriptador / Desencriptador</h1>
+
+        <label id = "aviso" for="texto"></label>
+        <textarea id="texto" cols = "30" rows = "20" placeholder="Ingrese el texto aquí"></textarea>
+
+        <br><br>
+            <div id="botones">
+                <button onclick="encriptar()">Encriptar</button>
+                <button onclick="desencriptar()">Desencriptar</button>
+            </div>
+        <br><br>
+
+         <div id="resultado"></div>
+
+        <script>
+            function encriptarTexto(texto) {
+                const encriptaciones = {
+                    'e': 'enter',
+                    'i': 'imes',
+                    'a': 'ai',
+                    'o': 'ober',
+                    'u': 'ufat'
+                };
+
+                return texto.replace(/[eioua]/g, letra => encriptaciones[letra]);
+            }
+
+            function encriptar() {
+                var textoIngresado = document.getElementById("texto").value;
+                var textoEncriptado = encriptarTexto(textoIngresado);
+                document.getElementById("resultado").innerText = textoEncriptado;
+            }
+
+            function desencriptarTexto(textoEncriptado) {
+                const desencriptaciones = {
+                    'enter': 'e',
+                    'imes': 'i',
+                    'ai': 'a',
+                    'ober': 'o',
+                    'ufat': 'u'
+                };
+
+                return textoEncriptado.replace(/enter|imes|ai|ober|ufat/g, palabra => desencriptaciones[palabra]);
+            }
+
+            function desencriptar() {
+                var textoEncriptado = document.getElementById("texto").value;
+                var textoDesencriptado = desencriptarTexto(textoEncriptado);
+                document.getElementById("resultado").innerText =  textoDesencriptado;
+            }
+        </script>
+    </body>
+</html>
